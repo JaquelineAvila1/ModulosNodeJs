@@ -12,10 +12,8 @@ const storage = multer.diskStorage({
     }
 })
 
-
-
 //funcion que leera los archivos
-const upload = multer({
+const archivo = multer({
     storage: storage
 })
 
@@ -24,7 +22,7 @@ app.get("/",(req, res)=> {
     res.sendFile(__dirname + "/views/index.html");
 });
 
-app.post("/files", upload.single('nombre'), (req,res)=>{
+app.post("/files", archivo.single('nombre'), (req,res)=>{
     res.send("Archivo guardado exitosamente");
 
 })
